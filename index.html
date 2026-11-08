@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#20372d">
+<meta name="description" content="SaraResto — une démonstration de site vitrine pour un restaurant de cuisine ivoirienne à Yamoussoukro.">
+<title>SaraResto — L’élégance des saveurs ivoiriennes</title>
+<style>
+:root{--ink:#231d18;--green:#263f34;--green2:#1b3028;--cream:#f5f0e7;--paper:#fbf8f1;--terra:#b85e3f;--gold:#b99460;--muted:#766b60;--line:rgba(38,63,52,.16);--serif:Georgia,'Times New Roman',serif;--sans:Arial,Helvetica,sans-serif;--shadow:0 16px 50px rgba(35,29,24,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}.container{width:min(1180px,calc(100% - 56px));margin:auto}.eyebrow{display:flex;align-items:center;gap:11px;color:#9a682e;text-transform:uppercase;font-size:10px;letter-spacing:.19em;font-weight:700}.eyebrow:before{content:"";width:29px;height:1px;background:var(--gold)}.serif{font-family:var(--serif);font-weight:400;letter-spacing:-.035em}.section-title{font-family:var(--serif);font-size:clamp(34px,4vw,53px);line-height:1.02;letter-spacing:-.04em;margin:12px 0 15px;font-weight:400}.section-copy{color:#6d6258;max-width:520px;font-size:14px;line-height:1.8}.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:0 22px;border:1px solid transparent;font-size:12px;font-weight:700;letter-spacing:.02em;transition:transform .25s,background .25s,color .25s,border-color .25s}.btn:hover{transform:translateY(-2px)}.btn-gold{background:var(--gold);color:#211a14}.btn-outline{border-color:rgba(255,255,255,.8);color:white;background:rgba(10,20,15,.14)}.btn-dark{background:var(--green);color:#fff}.btn-line{border-color:var(--green);color:var(--green);background:transparent}.arrow{font-size:17px;line-height:1}
+/* HEADER */
+.site-header{position:absolute;inset:0 0 auto;z-index:20;color:#fff;border-bottom:1px solid rgba(255,255,255,.14);transition:background .25s,box-shadow .25s}.site-header.scrolled{position:fixed;background:rgba(30,48,40,.96);box-shadow:0 8px 26px rgba(0,0,0,.14);backdrop-filter:blur(12px)}.nav-wrap{height:82px;display:flex;align-items:center;justify-content:space-between;gap:30px}.brand{display:flex;flex-direction:column;line-height:1}.brand-name{font-family:var(--serif);font-size:33px;font-style:italic;letter-spacing:-.055em;color:#e5c99b}.brand-sub{font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:#f1e9dc;margin-top:7px}.nav-links{display:flex;align-items:center;gap:29px;font-size:11px;letter-spacing:.04em}.nav-links a{opacity:.92;transition:color .2s}.nav-links a:hover{color:#e5c99b}.nav-cta{min-height:42px;padding:0 17px;font-size:10px}.menu-toggle{display:none;background:none;border:0;color:white;font-size:25px}
+/* HERO */
+.hero{min-height:680px;height:min(770px,90vh);position:relative;display:flex;align-items:center;overflow:hidden;background:#19251e url('assets/hero-food.jpg') center right/cover no-repeat;color:white}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,25,19,.94) 0%,rgba(19,29,22,.78) 39%,rgba(19,29,22,.15) 78%),linear-gradient(0deg,rgba(10,15,12,.33),transparent 45%)}.hero:after{content:"";position:absolute;inset:auto 0 0;height:1px;background:rgba(255,255,255,.22)}.hero-content{position:relative;z-index:1;padding-top:64px;max-width:650px}.hero-kicker{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#e4c99d;display:flex;align-items:center;gap:13px}.hero-kicker:before{display:none; content:"";height:1px;width:39px;background:var(--gold)}.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(55px,7vw,91px);line-height:.98;letter-spacing:-.055em;margin:25px 0 22px;max-width:630px}.hero h1 em{color:#d8b77e;font-style:italic}.hero-lead{max-width:445px;font-family:var(--serif);font-size:19px;line-height:1.5;color:#f2ede5}.hero-actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}.hero-note{position:absolute;right:4%;bottom:37px;z-index:1;writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;letter-spacing:.22em;color:rgba(255,255,255,.75);text-transform:uppercase}
+/* INTRO */
+.intro{display:grid;grid-template-columns:1.04fr .96fr;background:var(--paper);min-height:385px}.intro-photo{min-height:385px;background:url('assets/interior.jpg') center/cover no-repeat}.intro-copy{padding:72px clamp(34px,6vw,90px);align-self:center;position:relative}.intro-copy:after{content:"";position:absolute;right:0;top:20px;width:150px;height:240px;opacity:.13;background:radial-gradient(ellipse at 70% 35%,#b99460 0 1px,transparent 2px);background-size:15px 15px;pointer-events:none}.intro-copy .section-title{font-size:clamp(38px,4.2vw,55px);max-width:460px}.intro-copy p{max-width:470px;color:#6d6258;font-size:13px;line-height:1.9}.signature{font-family:var(--serif);font-size:24px;font-style:italic;color:var(--terra);margin-top:20px}
+/* FEATURES */
+.features{padding:84px 0 77px;background:var(--cream)}.section-head{text-align:center;max-width:670px;margin:0 auto 36px}.section-head .eyebrow{justify-content:center}.section-head .section-copy{margin:0 auto}.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.feature{position:relative;min-height:265px;overflow:hidden;background:#40382d;color:white;box-shadow:var(--shadow)}.feature img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;transition:transform .7s}.feature:hover img{transform:scale(1.05)}.feature:after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(transparent,rgba(15,18,14,.9))}.feature-caption{position:absolute;z-index:1;left:18px;right:18px;bottom:18px}.feature-caption h3{font-family:var(--serif);font-size:24px;font-weight:400;margin:0 0 3px}.feature-caption p{margin:0;font-size:11px;color:#eee4d7}
+/* MENU */
+.menu-section{padding:88px 0;background:#ede5d8;position:relative;overflow:hidden}.menu-section:before{content:"";position:absolute;left:-100px;top:60px;width:330px;height:460px;background:radial-gradient(ellipse at 30% 50%,rgba(38,63,52,.13),transparent 68%);pointer-events:none}.menu-layout{display:grid;grid-template-columns:260px 1fr;gap:52px;position:relative}.menu-intro{position:sticky;top:120px;align-self:start}.menu-intro .section-title{font-size:43px}.menu-intro .section-copy{font-size:13px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}.tab{padding:10px 16px;border:1px solid rgba(38,63,52,.2);background:transparent;color:var(--green);font-size:11px;transition:.2s}.tab.active,.tab:hover{background:var(--green);border-color:var(--green);color:white}.menu-tools{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:21px}.search{border:1px solid rgba(38,63,52,.22);background:rgba(255,255,255,.6);padding:11px 14px;width:220px;outline:none;font-size:12px}.search:focus{border-color:var(--terra)}.menu-count{color:#807468;font-size:10px}.dish-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.dish-card{background:var(--paper);box-shadow:0 6px 22px rgba(38,30,21,.06);transition:transform .25s,box-shadow .25s;min-width:0}.dish-card:hover{transform:translateY(-4px);box-shadow:0 13px 27px rgba(38,30,21,.1)}.dish-card img{width:100%;height:150px;display:block;object-fit:cover}.dish-info{padding:15px 15px 17px}.dish-meta{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#9a682e}.dish-info h3{font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.1;margin:6px 0}.dish-info p{font-size:11px;line-height:1.55;color:#756b60;margin:0}.dish-foot{display:flex;align-items:center;justify-content:space-between;margin-top:11px;padding-top:9px;border-top:1px solid var(--line);font-size:10px;color:#8d6e46}.price{font-weight:700;color:var(--green)}.menu-bottom{text-align:center;margin-top:25px}.text-link{display:inline-flex;gap:9px;align-items:center;color:var(--green);font-size:11px;font-weight:700;border-bottom:1px solid var(--gold);padding-bottom:5px;background:none;border-top:0;border-left:0;border-right:0}
+/* DRINKS */
+.drinks{display:grid;grid-template-columns:.7fr 1.3fr;min-height:270px;background:var(--green2);color:white}.drinks-copy{padding:56px max(40px,calc((100vw - 1180px)/2));padding-right:30px;align-self:center}.drinks-copy .section-title{font-size:40px}.drinks-copy p{max-width:380px;color:#d8d9d1;font-size:13px}.drinks-photo{background:url('assets/boissons.jpg') center/cover no-repeat;min-height:270px;position:relative}.drinks-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(27,48,40,.3),transparent)}
+/* GALLERY + BOOKING */
+.lower{padding:80px 0;background:var(--paper)}.lower-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}.gallery-head{margin-bottom:22px}.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:155px 155px;gap:10px}.gallery-grid button{padding:0;border:0;overflow:hidden;background:#ddd;position:relative}.gallery-grid button:first-child{grid-row:span 2}.gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}.gallery-grid button:hover img{transform:scale(1.05)}.booking-panel{background:#eee6d9;padding:36px 34px;border:1px solid rgba(38,63,52,.1)}.booking-panel .section-title{font-size:41px}.booking-panel p{font-size:12px;color:#74695e}.booking-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#71665a}.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid rgba(38,63,52,.2);background:#fbf8f1;color:var(--ink);outline:none;font-size:12px}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--terra)}.booking-form .btn{grid-column:1/-1;width:100%;margin-top:5px}.demo-note{font-size:10px!important;color:#8b7c6c!important;margin-top:13px}
+/* FOOTER */
+.footer{background:#1e2e26;color:#eee7dc;padding:55px 0 20px}.footer-main{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px}.footer-brand .brand-name{font-size:39px}.footer-brand p{font-family:var(--serif);font-style:italic;color:#c7bba9;font-size:14px}.footer h4{font-family:var(--serif);font-size:19px;font-weight:400;margin:3px 0 17px;color:#e0c79f}.footer-links{display:grid;gap:9px;font-size:11px;color:#c9c1b5}.footer-links a:hover{color:#e3c493}.footer-copy{border-top:1px solid rgba(255,255,255,.16);padding-top:18px;text-align:center;font-size:10px;color:#b8afa1}.demo-banner{background:#e8d8bd;color:#584632;text-align:center;padding:8px 15px;font-size:10px;letter-spacing:.04em}
+/* MODALS + MOTION */
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#20372d;color:white;padding:14px 20px;font-size:12px;box-shadow:var(--shadow);z-index:50;transition:.3s;max-width:min(92vw,460px);text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.lightbox{position:fixed;inset:0;background:rgba(9,15,11,.91);z-index:60;display:none;align-items:center;justify-content:center;padding:30px}.lightbox.open{display:flex}.lightbox img{max-width:min(100%,1000px);max-height:85vh;object-fit:contain;box-shadow:0 20px 80px #000}.lightbox button{position:absolute;top:20px;right:25px;background:none;border:0;color:#fff;font-size:34px}.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:980px){.nav-links{gap:17px}.menu-layout{grid-template-columns:220px 1fr;gap:28px}.dish-grid{grid-template-columns:repeat(2,1fr)}.feature-grid{grid-template-columns:repeat(2,1fr)}.footer-main{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.container{width:min(100% - 36px,560px)}.nav-wrap{height:72px}.brand-name{font-size:29px}.menu-toggle{display:block}.nav-cta{display:none}.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(30,48,40,.98);padding:18px 24px 24px;flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px 3px;border-bottom:1px solid rgba(255,255,255,.12)}.hero{height:auto;min-height:680px;background-position:60% center}.hero:before{background:linear-gradient(90deg,rgba(15,24,19,.92),rgba(15,24,19,.54)),linear-gradient(0deg,rgba(10,15,12,.45),transparent)}.hero-content{padding-top:100px;padding-bottom:85px}.hero h1{font-size:clamp(52px,14vw,74px)}.hero-lead{font-size:17px;max-width:340px}.hero-note{display:none}.hero-actions{gap:10px}.hero-actions .btn{min-height:46px;padding:0 15px;font-size:10px}.intro{grid-template-columns:1fr}.intro-photo{min-height:260px}.intro-copy{padding:45px 28px 50px}.intro-copy .section-title{font-size:43px}.features,.menu-section,.lower{padding:62px 0}.section-head{margin-bottom:26px}.feature-grid{grid-template-columns:repeat(2,1fr);gap:10px}.feature{min-height:210px}.feature-caption{left:12px;right:12px;bottom:12px}.feature-caption h3{font-size:20px}.feature-caption p{font-size:10px}.menu-layout{grid-template-columns:1fr;gap:24px}.menu-intro{position:static}.menu-intro .section-title{font-size:39px}.menu-tools{align-items:flex-start;flex-direction:column}.search{width:100%}.dish-grid{grid-template-columns:repeat(2,1fr);gap:10px}.dish-card img{height:125px}.dish-info{padding:12px}.dish-info h3{font-size:18px}.drinks{grid-template-columns:1fr}.drinks-copy{padding:43px 24px}.drinks-photo{min-height:200px}.lower-grid{grid-template-columns:1fr;gap:40px}.gallery-grid{grid-template-rows:130px 130px}.booking-panel{padding:28px 22px}.booking-panel .section-title{font-size:36px}.footer-main{grid-template-columns:1fr 1fr;gap:28px 20px}.footer-brand{grid-column:1/-1}.footer-brand .brand-name{font-size:36px}}
+@media(max-width:390px){.dish-grid{grid-template-columns:1fr}.dish-card img{height:170px}.feature{min-height:190px}.booking-form{grid-template-columns:1fr}.field.full,.booking-form .btn{grid-column:auto}.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+
+/* Suppression de tous les petits traits décoratifs */
+.hero-kicker::before,
+.hero-kicker::after,
+.eyebrow::before,
+.eyebrow::after,
+.section-kicker::before,
+.section-kicker::after {
+    display: none !important;
+    content: none !important;
+}
+/* COMMANDE ET PANIER */
+
+.order-panel {
+    margin-top: 35px;
+    padding: 30px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.order-header h3 {
+    font-size: 32px;
+    margin: 8px 0 0;
+}
+
+#cartCount {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.add-cart-btn {
+    width: 100%;
+    margin-top: 14px;
+    min-height: 39px;
+    border: 0;
+    background: var(--green);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.add-cart-btn:hover {
+    background: var(--terra);
+}
+
+.cart-line {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.cart-line strong {
+    display: block;
+    font-size: 13px;
+}
+
+.cart-line small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-controls button,
+.remove-item {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--green);
+    min-width: 28px;
+    min-height: 28px;
+}
+
+.remove-item {
+    color: var(--terra);
+}
+
+.empty-cart {
+    color: var(--muted);
+    font-size: 13px;
+    padding: 15px 0;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: 10px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+}
+
+.cart-total strong {
+    font-size: 20px;
+    color: var(--green);
+}
+
+.order-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.order-form .btn {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+@media(max-width:700px) {
+    .order-panel {
+        padding: 22px 16px;
+    }
+
+    .order-form {
+        grid-template-columns: 1fr;
+    }
+
+    .order-form .field {
+        grid-column: 1;
+    }
+
+    .cart-line {
+        grid-template-columns: 1fr auto;
+    }
+
+    .remove-item {
+        grid-column: 2;
+    }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container nav-wrap">
+    <a class="brand" href="#accueil" aria-label="SaraResto, accueil"><span class="brand-name">SaraResto</span><span class="brand-sub">L'élégance des saveurs ivoiriennes</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
+      <a href="#accueil">Accueil</a><a href="#restaurant">Notre restaurant</a><a href="#cuisine">Notre cuisine</a><a href="#carte">La carte</a><a href="#boissons">Nos boissons</a><a href="#galerie">Galerie</a><a href="#reservation">Contact</a>
+    </nav>
+    <a class="btn btn-gold nav-cta" href="#reservation">▦ &nbsp; Réserver une table</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+<main>
+<section class="hero" id="accueil">
+  <div class="container hero-content">
+  <div class="hero-kicker"> Yamoussoukro · Cuisine ivoirienne</div>
+    <h1>Les saveurs de<br>Yamoussoukro ,<br><em>à votre table.</em></h1>
+    <p class="hero-lead">Une cuisine généreuse, un savoir-faire authentique et le plaisir de partager.</p>
+    <div class="hero-actions"><a class="btn btn-gold" href="#carte">Découvrir notre carte <span class="arrow">↗</span></a><a class="btn btn-outline" href="#reservation">Réserver une table <span class="arrow">↗</span></a></div>
+  </div>
+  <div class="hero-note">Tradition · Saveurs · Hospitalité</div>
+</section>
+<section class="intro" id="restaurant">
+  <div class="intro-photo" role="img" aria-label="Salle de restaurant chaleureuse et végétalisée"></div>
+  <div class="intro-copy reveal"><div class="eyebrow">L'esprit SaraResto</div><h2 class="section-title">Bienvenue dans notre univers de saveurs.</h2><p>Chez SaraResto, la cuisine ivoirienne se raconte avec générosité. Des recettes familières, des couleurs gourmandes et le plaisir de se retrouver autour d'une belle table, dans une atmosphère chaleureuse.</p><p>Une invitation à découvrir les traditions culinaires de Côte d'Ivoire dans un esprit contemporain.</p><div class="signature">Le goût du partage.</div></div>
+</section>
+<section class="features" id="cuisine">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">Nos spécialités</div><h2 class="section-title">Une cuisine riche et authentique</h2><p class="section-copy">Des incontournables ivoiriens et des plats généreux, présentés avec soin. Découvrez quelques suggestions de la maison.</p></div>
+    <div class="feature-grid">
+      <article class="feature reveal"><img src="https://i.pinimg.com/736x/d3/5a/3c/d35a3c668b438e149304d9ebed0ba44a.jpg" alt="Poisson braisé accompagné d'attiéké"><div class="feature-caption"><h3>Attiéké poisson braisé</h3><p>Un classique ivoirien plein de saveurs</p></div></article>
+      <article class="feature reveal"><img src="https://i.pinimg.com/736x/19/0d/0f/190d0fb12cbf691485be51d2a93525c5.jpg" alt="Poulet braisé et accompagnement"><div class="feature-caption"><h3>Poulet braisé</h3><p>Tendre, généreux et savoureux</p></div></article>
+      <article class="feature reveal"><img src="https://i.pinimg.com/1200x/b5/79/cf/b579cf87312ef87bc8f5399823235c39.jpg" alt="Kédjénou mijoté"><div class="feature-caption"><h3>Kédjénou de pintade</h3><p>Une spécialité traditionnelle</p></div></article>
+      <article class="feature reveal"><img src="https://i.pinimg.com/736x/52/dd/b5/52ddb5536a84fa0bc9e7a27e7a3e8653.jpg" alt="Alloco et accompagnement"><div class="feature-caption"><h3>Alloco</h3><p>Simple et irrésistible</p></div></article>
+    </div>
+  </div>
+</section>
+<section class="menu-section" id="carte">
+ <div class="container menu-layout">
+  <aside class="menu-intro reveal"><div class="eyebrow">Notre carte</div><h2 class="section-title">Découvrez notre menu gourmand.</h2><p class="section-copy">Des plats inspirés des traditions ivoiriennes, des boissons fraîches et des créations sans alcool.</p><p class="section-copy" style="font-size:10px;margin-top:18px">Catalogue et tarifs illustratifs : à personnaliser selon la carte réelle de l'établissement.</p><a class="btn btn-dark" href="#reservation" style="margin-top:17px">Une question sur la carte <span class="arrow">↗</span></a></aside>
+  <div class="menu-content reveal">
+   <div class="tabs" role="tablist" aria-label="Catégories du menu">
+
+    <button class="tab active" data-filter="all" role="tab" aria-selected="true">
+        Tout
+    </button>
+
+    <button class="tab" data-filter="plats" role="tab" aria-selected="false">
+        Plats ivoiriens
+    </button>
+
+    <button class="tab" data-filter="fastfood" role="tab" aria-selected="false">
+        Nos Fast Food
+    </button>
+
+    <button class="tab" data-filter="cocktails" role="tab" aria-selected="false">
+        Cocktails sans alcool
+    </button>
+
+    <button class="tab" data-filter="jus" role="tab" aria-selected="false">
+        Jus naturels
+    </button>
+
+    <button class="tab" data-filter="sucreries" role="tab" aria-selected="false">
+        Sucreries
+    </button>
+    <button class="tab" data-filter="biere" role="tab" aria-selected="false">
+    Bière
+    </button>
+
+    <button class="tab" data-filter="vin" role="tab" aria-selected="false">
+    Vin
+    </button>
+
+    <button class="tab" data-filter="champagne" role="tab" aria-selected="false">
+    Champagne
+    </button>
+
+    <button class="tab" data-filter="liqueur" role="tab" aria-selected="false">
+    Liqueur
+    </button>
+</button>
+
+</div>
+   <div class="menu-tools"><input class="search" type="search" id="menuSearch" placeholder="Rechercher un plat ou une boisson…" aria-label="Rechercher dans la carte"><span class="menu-count" id="menuCount">Sélection de la maison</span></div>
+   <div class="dish-grid" id="dishGrid"></div>
+   <!-- PANIER DE COMMANDE -->
+<div class="order-panel" id="orderPanel">
+    <div class="order-header">
+        <div>
+            <div class="eyebrow">Votre sélection</div>
+            <h3 class="serif">Votre commande</h3>
+        </div>
+        <span id="cartCount">0 article</span>
+    </div>
+
+    <div id="cartItems">
+        <p class="empty-cart">Votre panier est encore vide.</p>
+    </div>
+
+    <div class="cart-total">
+        <span>Total estimé</span>
+        <strong id="cartTotal">0 FCFA</strong>
+    </div>
+
+    <form id="orderForm" class="order-form">
+        <div class="field">
+            <label for="orderName">Votre nom</label>
+            <input id="orderName" required placeholder="Nom et prénom">
+        </div>
+
+        <div class="field">
+            <label for="orderPhone">Votre téléphone</label>
+            <input id="orderPhone" type="tel" required placeholder="Votre numéro">
+        </div>
+
+        <div class="field full">
+            <label for="orderMode">Mode de commande</label>
+            <select id="orderMode" required>
+                <option value="">Choisir une option</option>
+                <option value="À emporter">À emporter</option>
+                <option value="Livraison à confirmer">Livraison à confirmer</option>
+                <option value="À consommer sur place">À consommer sur place</option>
+            </select>
+        </div>
+
+        <div class="field full">
+            <label for="orderAddress">Adresse ou précision (facultatif)</label>
+            <textarea id="orderAddress" rows="2"
+                placeholder="Votre adresse ou une précision"></textarea>
+        </div>
+
+        <button class="btn btn-dark" type="submit">
+            Envoyer ma commande sur WhatsApp ↗
+        </button>
+    </form>
+</div>
+   <div class="menu-bottom"><button class="text-link" id="moreBtn">Voir toute la sélection <span class="arrow">↗</span></button></div>
+  </div>
+ </div>
+</section>
+<section class="drinks" id="boissons"><div class="drinks-copy"><div class="eyebrow" style="color:#d9bd8b">Nos boissons</div><h2 class="section-title">Fraîcheur et convivialité.</h2><p>Jus de fruits, boissons locales et mocktails colorés : une touche de fraîcheur pour accompagner chaque moment.</p><a href="#carte" class="text-link" style="color:#e7d5b7">Découvrir nos boissons <span class="arrow">↗</span></a></div><div class="drinks-photo" role="img" aria-label="Sélection de boissons fraîches sans alcool"></div></section>
+<section class="lower" id="galerie"><div class="container lower-grid">
+ <div class="gallery-block reveal"><div class="gallery-head"><div class="eyebrow">Galerie</div><h2 class="section-title">Plongez dans notre ambiance.</h2><p class="section-copy">Un aperçu des lieux, des assiettes et des instants à partager.</p></div><div class="gallery-grid">
+ <button data-image="assets/interior.jpg" aria-label="Agrandir la photo de la salle"><img src="assets/interior.jpg" alt="Ambiance intérieure du restaurant"></button>
+ <button data-image="assets/attiéke.jpg" aria-label="Agrandir la photo du plat"><img src="assets/attiéke.jpg" alt="Suggestion de poisson braisé"></button>
+ <button data-image="assets/poulet.jpg" aria-label="Agrandir la photo du plat"><img src="assets/poulet.jpg" alt="Suggestion de poulet braisé"></button>
+ </div></div>
+ <div class="booking-panel reveal" id="reservation"><div class="eyebrow">Réservation</div><h2 class="section-title">Votre prochaine expérience commence ici.</h2><p>Indiquez vos préférences et découvrez le fonctionnement d'une demande de réservation en ligne.</p>
+ <form class="booking-form" id="bookingForm">
+  <div class="field"><label for="guestName">Votre nom</label><input id="guestName" name="name" required placeholder="Nom et prénom"></div>
+  <div class="field"><label for="guestPhone">Téléphone</label><input id="guestPhone" name="phone" type="tel" required placeholder="Votre numéro"></div>
+  <div class="field"><label for="bookingDate">Date souhaitée</label><input id="bookingDate" name="date" type="date" required></div>
+  <div class="field"><label for="bookingTime">Heure souhaitée</label><select id="bookingTime" name="time" required><option value="">Choisir une heure</option><option>12:00</option><option>13:00</option><option>19:00</option><option>20:00</option><option>21:00</option></select></div>
+  <div class="field full"><label for="guests">Nombre de personnes</label><select id="guests" name="guests"><option>1 personne</option><option selected>2 personnes</option><option>3 personnes</option><option>4 personnes</option><option>5 personnes</option><option>6 personnes ou plus</option></select></div>
+  <button class="btn btn-dark" type="submit">Envoyer une demande de démonstration <span class="arrow">↗</span></button>
+ </form><p class="demo-note">Formulaire de démonstration : aucune donnée n'est envoyée ni enregistrée.</p>
+ </div>
+</div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-main">
+ <div class="footer-brand"><a class="brand" href="#accueil"><span class="brand-name">SaraResto</span><span class="brand-sub">L'élégance des saveurs ivoiriennes</span></a><p>Le goût du partage, à votre table.</p></div>
+ <div><h4>Navigation</h4><div class="footer-links"><a href="#accueil">Accueil</a><a href="#restaurant">Notre restaurant</a><a href="#cuisine">Notre cuisine</a><a href="#carte">La carte</a></div></div>
+ <div><h4>Explorer</h4><div class="footer-links"><a href="#boissons">Nos boissons</a><a href="#galerie">Galerie</a><a href="#reservation">Réservation</a><a href="#reservation">Contact</a></div></div>
+ <div><h4>Nous trouver</h4><div class="footer-links"><span>Yamoussoukro, Côte d’Ivoire</span><span>Coordonnées à personnaliser</span><span>Horaires à confirmer</span></div></div>
+</div><div class="footer-copy">© 2026 SaraResto · Démonstration fictive de site vitrine — identité et contenus à personnaliser.</div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Aperçu de la photo"><button id="closeLightbox" aria-label="Fermer">×</button><img id="lightboxImage" src="" alt="Aperçu agrandi"></div>
+<script>
+
+// ==========================================
+// CONFIGURATION DE LA CARTE SARARESTO
+// ==========================================
+
+// Chaque produit contient :
+// Nom, description, catégorie, image, prix
+
+const dishes = [
+
+    // PLATS IVOIRIENS
+    ['Attiéké poisson braisé', 'Le mariage de l’attiéké et du poisson braisé.', 'plats', 'assets/attiéke.jpg', 4000],
+    ['Garba au thon', 'Un grand classique de la street food ivoirienne.', 'plats', 'assets/attiéke.jpg', 1500],
+    ['Poulet braisé et attiéké', 'Poulet grillé accompagné de son attiéké.', 'plats', 'assets/poulet.jpg', 6000],
+    ['Kédjénou de poulet', 'Une préparation mijotée aux saveurs généreuses.', 'plats', 'assets/kedjenou.jpg', 5000],
+    ['Kédjénou de pintade', 'Une spécialité traditionnelle à découvrir.', 'plats', 'assets/kedjenou.jpg', 6000],
+    ['Alloco et poisson braisé', 'Bananes plantain dorées et poisson braisé.', 'plats', 'assets/alloco.jpg', 5000],
+    ['Alloco et œufs', 'Une assiette simple et réconfortante.', 'plats', 'assets/alloco.jpg', 1500],
+    ['Foutou banane sauce graine', 'Un incontournable des tables ivoiriennes.', 'plats', 'assets/foutou.jpg', 3500],
+    ['Foutou igname sauce arachide', 'Une alliance généreuse et savoureuse.', 'plats', 'assets/foutou.jpg', 3500],
+    ['Placali sauce kopè', 'Le placali accompagné de sa sauce traditionnelle.', 'plats', 'assets/placali.jpg', 3000],
+    ['Placali sauce graine', 'Une recette appréciée pour sa richesse.', 'plats', 'assets/placali.jpg', 3500],
+    ['Riz gras ivoirien', 'Un plat parfumé aux couleurs locales.', 'plats', 'assets/riz.jpg', 2500],
+    ['Riz sauce arachide', 'Une recette généreuse à partager.', 'plats', 'assets/riz.jpg', 2500],
+    ['Riz sauce feuille', 'Une préparation traditionnelle et savoureuse.', 'plats', 'assets/riz.jpg', 2500],
+    ['Foutou sauce claire', 'Une recette traditionnelle à découvrir.', 'plats', 'assets/foutou.jpg', 3500],
+    ['Foutou sauce aubergine', 'Une assiette aux saveurs familières.', 'plats', 'assets/foutou.jpg', 3500],
+    ['Foutou sauce pistache', 'Une spécialité généreuse.', 'plats', 'assets/foutou.jpg', 3500],
+    ['Akpessi à l’igname', 'L’igname cuisinée dans la tradition locale.', 'plats', 'assets/placali.jpg', 2500],
+    ['Sauce feuille et foutou', 'Une association traditionnelle et parfumée.', 'plats', 'assets/foutou.jpg', 3500],
+    ['Attiéké et brochettes', 'Attiéké accompagné de brochettes grillées.', 'plats', 'assets/attiéke.jpg', 3000],
+
+    // FAST FOOD
+    ['Burger maison', 'Un burger généreux préparé maison.', 'fastfood', 'assets/alloco.jpg', 3000],
+    ['Cheeseburger', 'Pain, fromage et garniture savoureuse.', 'fastfood', 'assets/alloco.jpg', 3500],
+    ['Pizza royale', 'Une pizza généreusement garnie.', 'fastfood', 'assets/boissons.jpg', 5000],
+    ['Sandwich poulet', 'Poulet et légumes dans un pain moelleux.', 'fastfood', 'assets/poulet.jpg', 2500],
+    ['Frites maison', 'Des pommes de terre dorées et croustillantes.', 'fastfood', 'assets/alloco.jpg', 1500],
+
+    // COCKTAILS SANS ALCOOL
+    ['Virgin Mojito', 'Citron vert, menthe et fraîcheur pétillante.', 'cocktails', 'assets/boissons.jpg', 2000],
+    ['Bissap Fresh', 'Une création fraîche à base de bissap.', 'cocktails', 'assets/boissons.jpg', 1500],
+    ['Passion Sunrise', 'Une composition fruitée aux couleurs lumineuses.', 'cocktails', 'assets/boissons.jpg', 2000],
+    ['Ginger Citrus', 'Une rencontre entre gingembre et agrumes.', 'cocktails', 'assets/boissons.jpg', 1500],
+    ['Tropical Sunset', 'Un mélange fruité aux accents tropicaux.', 'cocktails', 'assets/boissons.jpg', 2000],
+    ['Ananas Menthe', 'Ananas frais et touche de menthe.', 'cocktails', 'assets/boissons.jpg', 1500],
+    ['Coco Passion', 'Douceur de coco et fruit de la passion.', 'cocktails', 'assets/boissons.jpg', 2000],
+    ['Tamarin Fizz', 'Une boisson pétillante aux notes de tamarin.', 'cocktails', 'assets/boissons.jpg', 1500],
+    ['Mango Fresh', 'Une composition rafraîchissante à la mangue.', 'cocktails', 'assets/boissons.jpg', 2000],
+    ['Citron Concombre', 'Une création légère et désaltérante.', 'cocktails', 'assets/boissons.jpg', 1500],
+
+    // JUS NATURELS
+    ['Jus d’orange frais', 'Un jus d’orange fraîchement préparé.', 'jus', 'assets/boissons.jpg', 1000],
+    ['Jus d’ananas', 'Une saveur tropicale et acidulée.', 'jus', 'assets/boissons.jpg', 1000],
+    ['Jus de mangue', 'La douceur de la mangue à savourer.', 'jus', 'assets/boissons.jpg', 1000],
+    ['Jus de passion', 'Une boisson fruitée et acidulée.', 'jus', 'assets/boissons.jpg', 1200],
+    ['Bissap maison', 'Une infusion d’hibiscus appréciée en Côte d’Ivoire.', 'jus', 'assets/boissons.jpg', 500],
+    ['Gingembre maison', 'Une boisson au gingembre.', 'jus', 'assets/boissons.jpg', 500],
+    ['Jus de tamarin', 'Une boisson au goût délicatement acidulé.', 'jus', 'assets/boissons.jpg', 1000],
+    ['Jus de baobab', 'Une boisson inspirée des saveurs locales.', 'jus', 'assets/boissons.jpg', 1000],
+    ['Jus de coco', 'Une pause douce et tropicale.', 'jus', 'assets/boissons.jpg', 1500],
+    ['Citronnade maison', 'Une citronnade fraîche et légère.', 'jus', 'assets/boissons.jpg', 1000],
+
+    // SUCRERIES ET AUTRES BOISSONS SANS ALCOOL
+    ['Eau minérale plate', 'Une eau fraîche pour accompagner votre repas.', 'sucreries', 'assets/boissons.jpg', 500],
+    ['Eau gazeuse', 'Une touche pétillante et rafraîchissante.', 'sucreries', 'assets/boissons.jpg', 1000],
+    ['Cola', 'Une boisson classique servie fraîche.', 'sucreries', 'assets/boissons.jpg', 500],
+    ['Soda orange', 'Une boisson fruitée et pétillante.', 'sucreries', 'assets/boissons.jpg', 500],
+    ['Limonade', 'Une note citronnée et désaltérante.', 'sucreries', 'assets/boissons.jpg', 500],
+    ['Tonic sans alcool', 'Une boisson pétillante aux notes fraîches.', 'sucreries', 'assets/boissons.jpg', 1000],
+    ['Boisson maltée sans alcool', 'Une boisson douce à servir fraîche.', 'sucreries', 'assets/boissons.jpg', 1000],
+    ['Thé glacé', 'Une boisson fraîche aux notes délicates.', 'sucreries', 'assets/boissons.jpg', 1000],
+    ['Café', 'Une pause chaude pour terminer le repas.', 'sucreries', 'assets/boissons.jpg', 500],
+
+    /// CATÉGORIE BIÈRE
+    ['Beaufort', 'Bière rafraîchissante.', 'biere', 'https://i.pinimg.com/1200x/5b/98/c9/5b98c95925ec86b289817801cc52dfdc.jpg', 1000],
+    ['Heineken', 'Bière rafraîchissante.', 'biere', 'https://i.pinimg.com/736x/07/91/71/0791715e0de69ffe11e48f122ab5f470.jpg', 1500],
+    ['Chill Pomme', 'Bière blonde.', 'biere', 'https://i.pinimg.com/736x/7f/f5/f2/7ff5f2ad0e5b1fe4af44af965c80a816.jpg', 1200],
+    ['Budweiser', 'Bière blonde.', 'biere', 'https://i.pinimg.com/736x/23/db/ff/23dbff251681245b9dbbdd83a9753e3c.jpg', 1000],
+    ['Desperado', 'Bière brune.', 'biere', 'https://i.pinimg.com/736x/ad/11/ad/ad11ad1fc320ab5ea4d2eae70e02ca40.jpg', 1500],
+    ['Guiness', 'Bière blonde.', 'biere', 'https://i.pinimg.com/736x/ad/49/e5/ad49e5eccf168d3253b337571f6e9280.jpg', 1200],
+    ['Doppel', 'Bière blonde.', 'biere', 'https://i.pinimg.com/736x/95/27/bd/9527bdf304578795f957690c02a6ddda.jpg', 1000],
+    ['Tequila', 'Bière brune.', 'biere', 'https://i.pinimg.com/1200x/60/1e/4d/601e4dd9ebd881a9937460da4ae2a989.jpg', 1500],
+    ['Bock', 'Bière blonde.', 'biere', 'https://i.pinimg.com/736x/58/94/7d/58947d849b59b1ad6c6894301354c4d4.jpg', 1200],
+
+     /// CATÉGORIE VIN
+    ['Château de segure', 'Un vin rouge élégant.', 'vin', 'https://i.pinimg.com/736x/c7/3f/3b/c73f3be959fc05daab4fe4ec659f8d12.jpg', 10000],
+    ['Pinot Noir', 'Un vin rouge élégant.', 'vin', 'https://i.pinimg.com/736x/8a/f7/42/8af7420295ed6696b803d0cd2600e198.jpg', 15000],
+    ['Calvet', 'Un vin blanc élégant.', 'vin', 'https://i.pinimg.com/1200x/08/4a/89/084a8996d499e2416e41cffc2ba1536f.jpg', 12000],
+    ['Roch Mazet', 'Un vin rouge élégant.', 'vin', 'https://i.pinimg.com/1200x/1a/af/f3/1aaff3c85a958e9c15df951c18d6070a.jpg', 10000],
+    ['Château de Fesles', 'Un vin rouge élégant.', 'vin', 'https://i.pinimg.com/736x/e6/3a/aa/e63aaa839d2c8ec06c968dca74de4eb5.jpg', 15000],
+    ['Valpièrre', 'Un vin rouge élégant.', 'vin', 'https://www.solibra.ci/files/photo081224130142-photo4.png', 4000],
+    ['Sambitter', 'Un vin rouge élégant.', 'vin', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_TEWHCJx9WVv7ngxbol7exDx-71gLLBgOo7_DsgbFJg&s=10', 2000],
+    ['Mateus', 'Un vin blanc élégant.', 'vin', 'https://i.pinimg.com/1200x/bb/c0/e4/bbc0e472008c6d630290dd348b1bcb66.jpg', 15000],
+    ['Kingstone', 'Un vin rouge élégant.', 'vin', 'https://i.pinimg.com/736x/30/4a/60/304a601fde7317b0e99e98f9fac3eb3f.jpg', 12000],
+
+      /// CATÉGORIE CHAMPAGNE
+    ['Lanson', 'Un champagne élégant.', 'champagne', 'https://i.pinimg.com/1200x/13/ed/4b/13ed4bcf1741955616a057b2f5f63929.jpg', 10000],
+    ['Champagne Deveaux', 'Un champagne élégant.', 'champagne', 'https://i.pinimg.com/736x/5e/21/6f/5e216f13eab760ad6d69eaec4734d996.jpg', 15000],
+    ['Pierre Gobillard', 'Un champagne élégant.', 'champagne', 'https://i.pinimg.com/1200x/1a/ef/78/1aef78da573afbe64429ecb55eecc83e.jpg', 12000],
+    ['Cocteaux', 'Un champagne élégant.', 'champagne', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQxACbmCMbtkweGmXiwq8B0G75aUN7lvjhYvFDULvEZw&s=10', 10000],
+
+      /// CATÉGORIE lIQUEUR
+    ['Baileys', 'Une liqueur crémeuse.', 'liqueur', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV7nl-P6-H1FJK4Yoki6NldlfbFwf7VcxnMlihltgqzg&s=10', 10000],
+    ['Grand Marnier', 'Une liqueur d’orange raffinée.', 'liqueur', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcB8FNGDh3UjM41AE2t-fQmDvRo6_AfjQ-aXHSvsEffQ&s=10', 15000],
+    ['Cointreau', 'Une liqueur d’orange élégante.', 'liqueur', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgnheZ6iZ51yiXlQqyFP9iCJyXb9NTY_yD-YOVeFPtlQ&s=10', 12000],
+    ['Drambuie', 'Une liqueur écossaise unique.', 'liqueur', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnmSh63mhst-SurpqmICbWQVHQutTghcpYoegCev0BvQ&s=10', 10000],
+    ['Château de segure', 'Un vin rouge élégant.', 'vin', 'https://i.pinimg.com/736x/c7/3f/3b/c73f3be959fc05daab4fe4ec659f8d12.jpg', 10000],
+    ['Pinot Noir', 'Un vin rouge élégant.', 'vin', 'https://i.pinimg.com/736x/8a/f7/42/8af7420295ed6696b803d0cd2600e198.jpg', 15000],
+    ['Calvet', 'Un vin blanc élégant.', 'vin', 'https://i.pinimg.com/1200x/08/4a/89/084a8996d499e2416e41cffc2ba1536f.jpg', 12000],
+    ['Roch Mazet', 'Un vin rouge élégant.', 'vin', 'https://i.pinimg.com/1200x/1a/af/f3/1aaff3c85a958e9c15df951c18d6070a.jpg', 10000],
+    ['Château de Fesles', 'Un vin rouge élégant.', 'vin', 'https://i.pinimg.com/736x/e6/3a/aa/e63aaa839d2c8ec06c968dca74de4eb5.jpg', 15000],
+    ['Valpièrre', 'Un vin rouge élégant.', 'vin', 'https://www.solibra.ci/files/photo081224130142-photo4.png', 4000],
+    ['Sambitter', 'Un vin rouge élégant.', 'vin', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_TEWHCJx9WVv7ngxbol7exDx-71gLLBgOo7_DsgbFJg&s=10', 2000],
+    ['Mateus', 'Un vin blanc élégant.', 'vin', 'https://i.pinimg.com/1200x/bb/c0/e4/bbc0e472008c6d630290dd348b1bcb66.jpg', 15000],
+    ['Kingstone', 'Un vin rouge élégant.', 'vin', 'https://i.pinimg.com/736x/30/4a/60/304a601fde7317b0e99e98f9fac3eb3f.jpg', 12000],
+
+    
+
+
+
+
+
+
+
+
+
+];
+
+// ==========================================
+// GESTION DES CATÉGORIES ET AFFICHAGE
+// ==========================================
+
+let activeFilter = 'all';
+let showAll = false;
+
+const grid = document.getElementById('dishGrid');
+const count = document.getElementById('menuCount');
+const search = document.getElementById('menuSearch');
+const moreBtn = document.getElementById('moreBtn');
+
+const categoryNames = {
+    plats: 'Plats ivoiriens',
+    fastfood: 'Nos Fast Food',
+    cocktails: 'Cocktails sans alcool',
+    jus: 'Jus naturels',
+    sucreries: 'Sucreries',
+    biere: 'Bière',
+    vin: 'Vin',
+    champagne: 'Champagne',
+    liqueur: 'Liqueur'
+};
+
+function renderMenu() {
+
+    const q = search.value.trim().toLocaleLowerCase('fr');
+
+    const filtered = dishes.filter(d =>
+        (activeFilter === 'all' || d[2] === activeFilter) &&
+        (!q || (d[0] + ' ' + d[1]).toLocaleLowerCase('fr').includes(q))
+    );
+
+    const visible = showAll ? filtered : filtered.slice(0, 6);
+
+    // Affichage des produits
+    grid.innerHTML = visible.map(d => `
+        <article class="dish-card">
+
+            <img src="${d[3]}" alt="${d[0]}" loading="lazy">
+
+            <div class="dish-info">
+
+                <div class="dish-meta">
+                    ${categoryNames[d[2]]}
+                </div>
+
+                <h3>${d[0]}</h3>
+
+                <p>${d[1]}</p>
+
+               <div class="dish-foot">
+    <span>Suggestion de la carte</span>
+    <span class="price">
+        ${Number(d[4]).toLocaleString('fr-FR')} FCFA
+    </span>
+</div>
+
+<button class="add-cart-btn"
+    data-product="${dishes.indexOf(d)}"
+    type="button">
+    + Ajouter à ma commande
+</button>
+
+            </div>
+
+        </article>
+    `).join('');
+
+    // Nombre de produits
+    count.textContent =
+        `${filtered.length} proposition${filtered.length > 1 ? 's' : ''} dans cette catégorie`;
+
+    // Bouton voir plus
+    moreBtn.style.display = filtered.length > 6 ? 'inline-flex' : 'none';
+
+    moreBtn.innerHTML =
+        (showAll ? 'Réduire la sélection' : 'Voir toute la sélection') +
+        ' <span class="arrow">↗</span>';
+}
+
+
+
+/* ==========================================
+   PANIER ET COMMANDES WHATSAPP
+========================================== */
+
+// Numéro WhatsApp du restaurant.
+// Format international sans +, sans espace.
+const RESTAURANT_WHATSAPP = "2250554650827";
+
+// Panier temporaire
+const cart = {};
+
+// Formatage des montants
+function formatPrice(amount) {
+    return Number(amount).toLocaleString('fr-FR') + " FCFA";
+}
+
+// Ajouter un produit au panier
+function addToCart(index) {
+    const product = dishes[index];
+
+    if (!product) return;
+
+    // Les catégories de boissons alcoolisées ne sont pas
+    // prises en charge par cette fonction de commande.
+    const unavailableCategories = [
+        "biere", "vin", "champagne", "liqueur"
+    ];
+
+    if (unavailableCategories.includes(product[2])) {
+        showToast("Cet article ne peut pas être ajouté à la commande.");
+        return;
+    }
+
+    if (!cart[index]) {
+        cart[index] = 0;
+    }
+
+    cart[index]++;
+
+    renderCart();
+    showToast(product[0] + " ajouté à votre commande.");
+}
+
+// Modifier une quantité
+function changeQuantity(index, amount) {
+    if (!cart[index]) return;
+
+    cart[index] += amount;
+
+    if (cart[index] <= 0) {
+        delete cart[index];
+    }
+
+    renderCart();
+}
+
+// Supprimer un article
+function removeFromCart(index) {
+    delete cart[index];
+    renderCart();
+}
+
+// Afficher le panier
+function renderCart() {
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+    const cartCount = document.getElementById("cartCount");
+
+    let total = 0;
+    let quantityTotal = 0;
+
+    const entries = Object.entries(cart);
+
+    if (entries.length === 0) {
+        cartItems.innerHTML =
+            '<p class="empty-cart">Votre panier est encore vide.</p>';
+
+        cartTotal.textContent = formatPrice(0);
+        cartCount.textContent = "0 article";
+        return;
+    }
+
+    cartItems.innerHTML = entries.map(([index, quantity]) => {
+        const product = dishes[Number(index)];
+        const subtotal = Number(product[4]) * quantity;
+
+        total += subtotal;
+        quantityTotal += quantity;
+
+        return `
+            <div class="cart-line">
+                <div>
+                    <strong>${product[0]}</strong>
+                    <small>
+                        ${formatPrice(product[4])} × ${quantity}
+                        = ${formatPrice(subtotal)}
+                    </small>
+                </div>
+
+                <div class="quantity-controls">
+                    <button type="button"
+                        onclick="changeQuantity(${index}, -1)">−</button>
+
+                    <span>${quantity}</span>
+
+                    <button type="button"
+                        onclick="changeQuantity(${index}, 1)">+</button>
+                </div>
+
+                <button type="button"
+                    class="remove-item"
+                    onclick="removeFromCart(${index})"
+                    aria-label="Supprimer ${product[0]}">
+                    ×
+                </button>
+            </div>
+        `;
+    }).join("");
+
+    cartTotal.textContent = formatPrice(total);
+
+    cartCount.textContent =
+        quantityTotal + (quantityTotal > 1 ? " articles" : " article");
+}
+
+// Écouter les boutons d'ajout
+document.getElementById("dishGrid").addEventListener("click", function(event) {
+    const button = event.target.closest(".add-cart-btn");
+
+    if (!button) return;
+
+    addToCart(Number(button.dataset.product));
+});
+
+// Envoyer la commande sur WhatsApp
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const entries = Object.entries(cart);
+
+    if (entries.length === 0) {
+        showToast("Ajoutez au moins un article à votre commande.");
+        return;
+    }
+
+    const name = document.getElementById("orderName").value.trim();
+    const phone = document.getElementById("orderPhone").value.trim();
+    const mode = document.getElementById("orderMode").value;
+    const address = document.getElementById("orderAddress").value.trim();
+
+    let total = 0;
+
+    const lines = entries.map(([index, quantity]) => {
+        const product = dishes[Number(index)];
+        const subtotal = Number(product[4]) * quantity;
+
+        total += subtotal;
+
+        return `- ${product[0]} × ${quantity} : ${formatPrice(subtotal)}`;
+    });
+
+    const message = [
+        "Bonjour SaraResto, je souhaite passer une commande.",
+        "",
+        "COMMANDE :",
+        ...lines,
+        "",
+        "TOTAL ESTIMÉ : " + formatPrice(total),
+        "",
+        "INFORMATIONS CLIENT :",
+        "Nom : " + name,
+        "Téléphone : " + phone,
+        "Mode : " + mode,
+        "Adresse / précision : " + (address || "Non renseignée"),
+        "",
+        "Merci de me confirmer la disponibilité et les modalités."
+    ].join("\n");
+
+    const whatsappURL =
+        "https://wa.me/" + RESTAURANT_WHATSAPP +
+        "?text=" + encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+});
+
+
+
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("guestName").value.trim();
+    const phone = document.getElementById("guestPhone").value.trim();
+    const date = document.getElementById("bookingDate").value;
+    const time = document.getElementById("bookingTime").value;
+    const guests = document.getElementById("guests").value;
+
+    // Vérification des champs
+    if (!name || !phone || !date || !time || !guests) {
+        alert("Merci de remplir tous les champs de réservation.");
+        return;
+    }
+
+    // Formatage de la date en français
+    const formattedDate = new Date(date + "T12:00:00")
+        .toLocaleDateString("fr-FR", {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        });
+
+    const message = [
+        "Bonjour SaraResto, je souhaite faire une réservation.",
+        "",
+        "📅 NOUVELLE DEMANDE DE RÉSERVATION",
+        "",
+        "Nom : " + name,
+        "Téléphone : " + phone,
+        "Date souhaitée : " + formattedDate,
+        "Heure souhaitée : " + time,
+        "Nombre de personnes : " + guests,
+        "",
+        "Merci de me confirmer la disponibilité de cette réservation."
+    ].join("\n");
+
+    const whatsappURL =
+        "https://wa.me/" + RESTAURANT_WHATSAPP +
+        "?text=" + encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+}); 
+
+
+
+
+// ==========================================
+// BOUTONS DES CATÉGORIES
+// ==========================================
+
+document.querySelectorAll('.tab').forEach(button => {
+
+    button.addEventListener('click', () => {
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.classList.remove('active');
+            tab.setAttribute('aria-selected', 'false');
+        });
+
+        button.classList.add('active');
+        button.setAttribute('aria-selected', 'true');
+
+        activeFilter = button.dataset.filter;
+        showAll = false;
+
+        renderMenu();
+
+    });
+
+});
+
+// ==========================================
+// RECHERCHE
+// ==========================================
+
+search.addEventListener('input', () => {
+    showAll = false;
+    renderMenu();
+});
+
+// ==========================================
+// AFFICHER PLUS DE PRODUITS
+// ==========================================
+
+moreBtn.addEventListener('click', () => {
+    showAll = !showAll;
+    renderMenu();
+});
+
+
+// Premier affichage
+renderMenu();
+;renderMenu();
+const header=document.getElementById('header');function onScroll(){header.classList.toggle('scrolled',window.scrollY>35)}window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+const toggle=document.getElementById('menuToggle'),nav=document.getElementById('navLinks');toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const toast=document.getElementById('toast');let toastTimer;function showToast(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),4800)}
+/* ==========================================
+   RÉSERVATION WHATSAPP
+========================================== */
+
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("guestName").value.trim();
+    const phone = document.getElementById("guestPhone").value.trim();
+    const date = document.getElementById("bookingDate").value;
+    const time = document.getElementById("bookingTime").value;
+    const guests = document.getElementById("guests").value;
+
+    const message = [
+        "Bonjour SaraResto, je souhaite faire une réservation.",
+        "",
+        "INFORMATIONS DE RÉSERVATION :",
+        "Nom : " + name,
+        "Téléphone : " + phone,
+        "Date souhaitée : " + date,
+        "Heure souhaitée : " + time,
+        "Nombre de personnes : " + guests,
+        "",
+        "Merci de me confirmer la disponibilité de cette réservation."
+    ].join("\n");
+
+    const whatsappURL =
+        "https://wa.me/" + RESTAURANT_WHATSAPP +
+        "?text=" + encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+});
+const lightbox=document.getElementById('lightbox'),lbImage=document.getElementById('lightboxImage');document.querySelectorAll('.gallery-grid button').forEach(b=>b.addEventListener('click',()=>{lbImage.src=b.dataset.image;lightbox.classList.add('open')}));function closeLightbox(){lightbox.classList.remove('open');lbImage.src=''}document.getElementById('closeLightbox').addEventListener('click',closeLightbox);lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+const dateInput=document.getElementById('bookingDate');const today=new Date();const localDate=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);dateInput.min=localDate;
+</script>
+</body>
+</html>
