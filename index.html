@@ -553,6 +553,11 @@ function renderMenu() {
 
     // Bouton voir plus
     moreBtn.style.display = filtered.length > 6 ? 'inline-flex' : 'none';
+    button,
+a,
+img {
+    -webkit-tap-highlight-color: transparent;
+}
 
     moreBtn.innerHTML =
         (showAll ? 'Réduire la sélection' : 'Voir toute la sélection') +
