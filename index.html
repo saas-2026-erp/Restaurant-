@@ -194,11 +194,25 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 @media(max-width:700px) {
   html { scroll-padding-top:76px; }
   .container { width:calc(100% - 32px); }
-  .hero { min-height:560px; height:auto; }
+  .hero{
+ min-height:690px;
+ height:min(780px,92vh);
+ position:relative;
+ display:flex;
+ align-items:center;
+ overflow:hidden;
+ background-image:var(--hero-image);
+ background-size:cover;
+ background-position:center;
+ color:white;
+}
   .hero-content { padding-top:105px; padding-bottom:62px; }
   .hero h1 { font-size:clamp(40px,10.8vw,58px); line-height:1.02; margin:18px 0 16px; }
   .hero-lead { font-size:15px; line-height:1.5; }
   .hero-actions { margin-top:22px; }
+  .hero:before{
+ display:none;
+}
   .intro-photo { min-height:190px; }
   .intro-copy { padding:32px 22px 36px; }
   .intro-copy .section-title { font-size:clamp(30px,8vw,39px); }
