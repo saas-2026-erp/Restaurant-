@@ -245,6 +245,26 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .gallery-placeholder { min-height:105px; }
 }
 
+/* FLÈCHES DES BOUTONS — RENDU IDENTIQUE SUR TOUS LES APPAREILS */
+.arrow-icon{
+  display:inline-block;
+  width:16px;
+  height:16px;
+  flex:0 0 16px;
+  vertical-align:middle;
+}
+
+.arrow-icon svg{
+  display:block;
+  width:100%;
+  height:100%;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
 </style>
 </head>
 <body>
@@ -265,7 +285,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   <div class="hero-kicker"> Yamoussoukro · Cuisine ivoirienne</div>
     <h1>Les saveurs de<br>Yamoussoukro ,<br><em>à votre table.</em></h1>
     <p class="hero-lead">Une cuisine généreuse, un savoir-faire authentique et le plaisir de partager.</p>
-    <div class="hero-actions"><a class="btn btn-gold" href="#carte">Découvrir notre carte <span class="arrow">↗</span></a><a class="btn btn-outline" href="#reservation">Réserver une table <span class="arrow">↗</span></a></div>
+    <div class="hero-actions"><a class="btn btn-gold" href="#carte">Découvrir notre carte <span class="arrow-icon" aria-hidden="true">
+  <svg viewBox="0 0 24 24">
+    <path d="M7 17 17 7M7 7h10v10"/>
+  </svg>
+</span></a><a class="btn btn-outline" href="#reservation">Réserver une table <span class="arrow-icon" aria-hidden="true">
+  <svg viewBox="0 0 24 24">
+    <path d="M7 17 17 7M7 7h10v10"/>
+  </svg>
+</span></a></div>
   </div>
   <div class="hero-note">Tradition · Saveurs · Hospitalité</div>
 </section>
@@ -286,7 +314,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 </section>
 <section class="menu-section" id="carte">
  <div class="container menu-layout">
-  <aside class="menu-intro reveal"><div class="eyebrow">Notre carte</div><h2 class="section-title">Découvrez notre menu gourmand.</h2><p class="section-copy">Des plats inspirés des traditions ivoiriennes, des boissons fraîches et des créations sans alcool.</p><p class="section-copy" style="font-size:10px;margin-top:18px">Catalogue et tarifs illustratifs : à personnaliser selon la carte réelle de l'établissement.</p><a class="btn btn-dark" href="#reservation" style="margin-top:17px">Une question sur la carte <span class="arrow">↗</span></a></aside>
+  <aside class="menu-intro reveal"><div class="eyebrow">Notre carte</div><h2 class="section-title">Découvrez notre menu gourmand.</h2><p class="section-copy">Des plats inspirés des traditions ivoiriennes, des boissons fraîches et des créations sans alcool.</p><p class="section-copy" style="font-size:10px;margin-top:18px">Catalogue et tarifs illustratifs </p><a class="btn btn-dark" href="#reservation" style="margin-top:17px">Une question sur la carte <span class="arrow-icon" aria-hidden="true">
+  <svg viewBox="0 0 24 24">
+    <path d="M7 17 17 7M7 7h10v10"/>
+  </svg>
+</span></a></aside>
   <div class="menu-content reveal">
    <div class="tabs" role="tablist" aria-label="Catégories du menu">
 
@@ -380,15 +412,27 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
         </div>
 
         <button class="btn btn-dark" type="submit">
-            Envoyer ma commande sur WhatsApp ↗
+            Envoyer ma commande sur WhatsApp<span class="arrow-icon" aria-hidden="true">
+  <svg viewBox="0 0 24 24">
+    <path d="M7 17 17 7M7 7h10v10"/>
+  </svg>
+</span>
         </button>
     </form>
 </div>
-   <div class="menu-bottom"><button class="text-link" id="moreBtn">Voir toute la sélection <span class="arrow">↗</span></button></div>
+   <div class="menu-bottom"><button class="text-link" id="moreBtn">Voir toute la sélection <span class="arrow-icon" aria-hidden="true">
+  <svg viewBox="0 0 24 24">
+    <path d="M7 17 17 7M7 7h10v10"/>
+  </svg>
+</span></button></div>
   </div>
  </div>
 </section>
-<section class="drinks" id="boissons"><div class="drinks-copy"><div class="eyebrow" style="color:#d9bd8b">Nos boissons</div><h2 class="section-title">Fraîcheur et convivialité.</h2><p>Jus de fruits, boissons locales et mocktails colorés : une touche de fraîcheur pour accompagner chaque moment.</p><a href="#carte" class="text-link" style="color:#e7d5b7">Découvrir nos boissons <span class="arrow">↗</span></a></div><div class="drinks-photo" role="img" aria-label="Sélection de boissons fraîches sans alcool"></div></section>
+<section class="drinks" id="boissons"><div class="drinks-copy"><div class="eyebrow" style="color:#d9bd8b">Nos boissons</div><h2 class="section-title">Fraîcheur et convivialité.</h2><p>Jus de fruits, boissons locales et mocktails colorés : une touche de fraîcheur pour accompagner chaque moment.</p><a href="#carte" class="text-link" style="color:#e7d5b7">Découvrir nos boissons <span class="arrow-icon" aria-hidden="true">
+  <svg viewBox="0 0 24 24">
+    <path d="M7 17 17 7M7 7h10v10"/>
+  </svg>
+</span></a></div><div class="drinks-photo" role="img" aria-label="Sélection de boissons fraîches sans alcool"></div></section>
 <section class="lower" id="galerie"><div class="container lower-grid">
  <div class="gallery-block reveal"><div class="gallery-head"><div class="eyebrow">Galerie</div><h2 class="section-title">Plongez dans notre ambiance.</h2><p class="section-copy">Un aperçu des lieux, des assiettes et des instants à partager.</p></div><div class="gallery-grid">
  <div class="gallery-placeholder" role="img" aria-label="Photo de la salle à ajouter"></div>
@@ -402,7 +446,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   <div class="field"><label for="bookingDate">Date souhaitée</label><input id="bookingDate" name="date" type="date" required></div>
   <div class="field"><label for="bookingTime">Heure souhaitée</label><select id="bookingTime" name="time" required><option value="">Choisir une heure</option><option>12:00</option><option>13:00</option><option>19:00</option><option>20:00</option><option>21:00</option></select></div>
   <div class="field full"><label for="guests">Nombre de personnes</label><select id="guests" name="guests"><option>1 personne</option><option selected>2 personnes</option><option>3 personnes</option><option>4 personnes</option><option>5 personnes</option><option>6 personnes ou plus</option></select></div>
-  <button class="btn btn-dark" type="submit">Envoyer une demande de démonstration <span class="arrow">↗</span></button>
+  <button class="btn btn-dark" type="submit">Envoyer une demande de démonstration <span class="arrow-icon" aria-hidden="true">
+  <svg viewBox="0 0 24 24">
+    <path d="M7 17 17 7M7 7h10v10"/>
+  </svg>
+</span></button>
  </form><p class="demo-note">Votre application WhatsApp s’ouvrira avec votre demande préremplie. La réservation sera confirmée par le restaurant.</p>
  </div>
 </div></section>
